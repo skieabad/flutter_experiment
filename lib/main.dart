@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
+import 'package:flutter_experiment/utils/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +14,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primaryColor: FlutterExperimentColors.primaryColor,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: FlutterExperimentColors.primaryColor,
+          primary: FlutterExperimentColors.primaryColor,
+        ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: FlutterExperimentColors.primaryColor,
+          foregroundColor: Colors.white,
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: FlutterExperimentColors.primaryColor,
+          foregroundColor: Colors.white,
+        ),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -29,37 +43,52 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  final _key = GlobalKey<ExpandableFabState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title), centerTitle: true),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+          children: <Widget>[const Text('Hello world!')],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButtonLocation: ExpandableFab.location,
+      floatingActionButton: ExpandableFab(
+        key: _key,
+        type: ExpandableFabType.up,
+        childrenAnimation: ExpandableFabAnimation.none,
+        distance: 70,
+        overlayStyle: ExpandableFabOverlayStyle(
+          // color: Colors.white.withValues(alpha: 0.9),
+          blur: 5,
+        ),
+        children: const [
+          Row(
+            spacing: 20,
+            children: [
+              Text('Enter serial number'),
+              FloatingActionButton.small(
+                heroTag: null,
+                onPressed: null,
+                child: Icon(Icons.more),
+              ),
+            ],
+          ),
+          Row(
+            spacing: 20,
+            children: [
+              Text('Scan Gateway'),
+              FloatingActionButton.small(
+                heroTag: null,
+                onPressed: null,
+                child: Icon(Icons.camera_alt),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
