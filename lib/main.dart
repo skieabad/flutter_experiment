@@ -71,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Text('Enter serial number'),
               FloatingActionButton.small(
+                shape: CircleBorder(),
                 heroTag: null,
                 onPressed: null,
                 child: Icon(Icons.more),
@@ -82,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Text('Scan Gateway'),
               FloatingActionButton.small(
+                shape: CircleBorder(),
                 heroTag: null,
                 onPressed: null,
                 child: Icon(Icons.camera_alt),
