@@ -58,6 +58,16 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonLocation: ExpandableFab.location,
       floatingActionButton: ExpandableFab(
         key: _key,
+        openButtonBuilder: RotateFloatingActionButtonBuilder(
+          child: const Icon(Icons.menu),
+          shape: const CircleBorder(),
+        ),
+        closeButtonBuilder: DefaultFloatingActionButtonBuilder(
+          child: const Icon(Icons.close),
+          fabSize: ExpandableFabSize.small,
+          shape: const CircleBorder(),
+          backgroundColor: Colors.redAccent,
+        ),
         type: ExpandableFabType.up,
         childrenAnimation: ExpandableFabAnimation.none,
         distance: 70,
