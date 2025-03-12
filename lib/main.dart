@@ -58,6 +58,16 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonLocation: ExpandableFab.location,
       floatingActionButton: ExpandableFab(
         key: _key,
+        openButtonBuilder: RotateFloatingActionButtonBuilder(
+          child: const Icon(Icons.menu),
+          shape: const CircleBorder(),
+        ),
+        closeButtonBuilder: DefaultFloatingActionButtonBuilder(
+          child: const Icon(Icons.close),
+          fabSize: ExpandableFabSize.small,
+          shape: const CircleBorder(),
+          backgroundColor: Colors.redAccent,
+        ),
         type: ExpandableFabType.up,
         childrenAnimation: ExpandableFabAnimation.none,
         distance: 70,
@@ -71,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Text('Enter serial number'),
               FloatingActionButton.small(
+                shape: CircleBorder(),
                 heroTag: null,
                 onPressed: null,
                 child: Icon(Icons.more),
@@ -82,6 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Text('Scan Gateway'),
               FloatingActionButton.small(
+                shape: CircleBorder(),
                 heroTag: null,
                 onPressed: null,
                 child: Icon(Icons.camera_alt),
