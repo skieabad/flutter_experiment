@@ -44,7 +44,6 @@ class _TripListPageState extends State<TripListPage> {
                   CustomSlidableAction(
                     onPressed: (context) {
                       if (trips[index].isActive) {
-                        // End trip
                         setState(() {
                           trips[index].isActive = false;
                         });
@@ -53,17 +52,18 @@ class _TripListPageState extends State<TripListPage> {
                             content: Text('Trip Ended: ${trips[index].name}'),
                           ),
                         );
-                      } else {
-                        // Start trip
-                        setState(() {
-                          trips[index].isActive = true;
-                        });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Trip Started: ${trips[index].name}'),
-                          ),
-                        );
+
+                        return;
                       }
+
+                      setState(() {
+                        trips[index].isActive = true;
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Trip Started: ${trips[index].name}'),
+                        ),
+                      );
                     },
                     backgroundColor:
                         trips[index].isActive ? Colors.red : Colors.green,
@@ -73,7 +73,6 @@ class _TripListPageState extends State<TripListPage> {
                       topRight: Radius.circular(16),
                       bottomRight: Radius.circular(16),
                     ),
-                    // Custom child for more control over layout
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       spacing: 4,
@@ -92,7 +91,6 @@ class _TripListPageState extends State<TripListPage> {
                   ),
                 ],
               ),
-              // Main card content
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -114,6 +112,7 @@ class _TripListPageState extends State<TripListPage> {
                 child: Padding(
                   padding: EdgeInsets.all(16),
                   child: Column(
+                    spacing: 8,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
@@ -140,7 +139,6 @@ class _TripListPageState extends State<TripListPage> {
                             ),
                         ],
                       ),
-                      SizedBox(height: 8),
                       Text('Vehicle: ${trips[index].vehicleName}'),
                     ],
                   ),
