@@ -114,6 +114,7 @@ class _TripListPageState extends State<TripListPage> {
                 child: Padding(
                   padding: EdgeInsets.all(16),
                   child: Column(
+                    spacing: 8,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
@@ -140,7 +141,6 @@ class _TripListPageState extends State<TripListPage> {
                             ),
                         ],
                       ),
-                      SizedBox(height: 8),
                       Text('Vehicle: ${trips[index].vehicleName}'),
                     ],
                   ),
