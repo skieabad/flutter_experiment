@@ -44,7 +44,6 @@ class _TripListPageState extends State<TripListPage> {
                   CustomSlidableAction(
                     onPressed: (context) {
                       if (trips[index].isActive) {
-                        // End trip
                         setState(() {
                           trips[index].isActive = false;
                         });
@@ -73,7 +72,6 @@ class _TripListPageState extends State<TripListPage> {
                       topRight: Radius.circular(16),
                       bottomRight: Radius.circular(16),
                     ),
-                    // Custom child for more control over layout
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       spacing: 4,
@@ -92,7 +90,6 @@ class _TripListPageState extends State<TripListPage> {
                   ),
                 ],
               ),
-              // Main card content
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
