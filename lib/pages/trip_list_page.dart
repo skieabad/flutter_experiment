@@ -52,17 +52,18 @@ class _TripListPageState extends State<TripListPage> {
                             content: Text('Trip Ended: ${trips[index].name}'),
                           ),
                         );
-                      } else {
-                        // Start trip
-                        setState(() {
-                          trips[index].isActive = true;
-                        });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Trip Started: ${trips[index].name}'),
-                          ),
-                        );
+
+                        return;
                       }
+
+                      setState(() {
+                        trips[index].isActive = true;
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Trip Started: ${trips[index].name}'),
+                        ),
+                      );
                     },
                     backgroundColor:
                         trips[index].isActive ? Colors.red : Colors.green,
