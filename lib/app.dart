@@ -8,19 +8,22 @@ class MyMaterialApp extends StatefulWidget {
   State<MyMaterialApp> createState() => _MyMaterialAppState();
 }
 
-class _MyMaterialAppState extends State<MyMaterialApp>
-    with SingleTickerProviderStateMixin {
+class _MyMaterialAppState extends State<MyMaterialApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Trip Swipe Actions',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.black,
         scaffoldBackgroundColor: Colors.black,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
           centerTitle: true,
+        ),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
         ),
       ),
       home: TripListPage(),
