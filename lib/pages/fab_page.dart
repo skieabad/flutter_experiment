@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
+import 'package:flutter_experiment/core/widgets/custom_expandable_fab.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class FabPage extends StatefulWidget {
+  const FabPage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<FabPage> createState() => _FabPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _FabPageState extends State<FabPage> {
   final _key = GlobalKey<ExpandableFabState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(title: Text('Fab Page'), centerTitle: true),
       body: Center(
         child: Column(
@@ -22,51 +24,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButtonLocation: ExpandableFab.location,
-      floatingActionButton: ExpandableFab(
-        key: _key,
-        openButtonBuilder: RotateFloatingActionButtonBuilder(
-          child: const Icon(Icons.menu),
-          shape: const CircleBorder(),
-        ),
-        closeButtonBuilder: DefaultFloatingActionButtonBuilder(
-          child: const Icon(Icons.close),
-          fabSize: ExpandableFabSize.small,
-          shape: const CircleBorder(),
-          backgroundColor: Colors.redAccent,
-        ),
-        type: ExpandableFabType.up,
-        childrenAnimation: ExpandableFabAnimation.none,
-        distance: 70,
-        overlayStyle: ExpandableFabOverlayStyle(
-          // color: Colors.white.withValues(alpha: 0.9),
-          blur: 5,
-        ),
-        children: const [
-          Row(
-            spacing: 20,
-            children: [
-              Text('Enter serial number'),
-              FloatingActionButton.small(
-                shape: CircleBorder(),
-                heroTag: null,
-                onPressed: null,
-                child: Icon(Icons.more),
-              ),
-            ],
-          ),
-          Row(
-            spacing: 20,
-            children: [
-              Text('Scan Gateway'),
-              FloatingActionButton.small(
-                shape: CircleBorder(),
-                heroTag: null,
-                onPressed: null,
-                child: Icon(Icons.camera_alt),
-              ),
-            ],
-          ),
-        ],
+      floatingActionButton: CustomExpandableFab(
+        expandableFabKey: _key,
+        onManualPressed: () {},
+        onScanPressed: () {},
       ),
     );
   }
