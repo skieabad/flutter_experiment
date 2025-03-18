@@ -30,6 +30,8 @@ class _ExperimentSliderPageState extends State<ExperimentSliderPage> {
       body: ListView.builder(
         itemCount: trips.length,
         itemBuilder: (context, index) {
+          var trip = trips[index];
+
           return Padding(
             padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             child: Stack(
@@ -56,13 +58,13 @@ class _ExperimentSliderPageState extends State<ExperimentSliderPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              trips[index].name,
+                              trip.name,
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            if (trips[index].isActive)
+                            if (trip.isActive)
                               Container(
                                 padding: EdgeInsets.symmetric(
                                   horizontal: 8,
@@ -77,14 +79,14 @@ class _ExperimentSliderPageState extends State<ExperimentSliderPage> {
                           ],
                         ),
                         SizedBox(height: 8),
-                        Text('Vehicle: ${trips[index].vehicleName}'),
+                        Text('Vehicle: ${trip.vehicleName}'),
                       ],
                     ),
                   ),
                 ),
                 Positioned.fill(
                   child: Slidable(
-                    key: ValueKey(trips[index].name),
+                    key: ValueKey(trip.name),
                     direction: Axis.horizontal,
                     endActionPane: ActionPane(
                       motion: const ScrollMotion(),
