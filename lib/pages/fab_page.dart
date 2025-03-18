@@ -22,51 +22,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButtonLocation: ExpandableFab.location,
-      floatingActionButton: ExpandableFab(
-        key: _key,
-        openButtonBuilder: RotateFloatingActionButtonBuilder(
-          child: const Icon(Icons.menu),
-          shape: const CircleBorder(),
-        ),
-        closeButtonBuilder: DefaultFloatingActionButtonBuilder(
-          child: const Icon(Icons.close),
-          fabSize: ExpandableFabSize.small,
-          shape: const CircleBorder(),
-          backgroundColor: Colors.redAccent,
-        ),
-        type: ExpandableFabType.up,
-        childrenAnimation: ExpandableFabAnimation.none,
-        distance: 70,
-        overlayStyle: ExpandableFabOverlayStyle(
-          // color: Colors.white.withValues(alpha: 0.9),
-          blur: 5,
-        ),
-        children: const [
-          Row(
-            spacing: 20,
-            children: [
-              Text('Enter serial number'),
-              FloatingActionButton.small(
-                shape: CircleBorder(),
-                heroTag: null,
-                onPressed: null,
-                child: Icon(Icons.more),
-              ),
-            ],
-          ),
-          Row(
-            spacing: 20,
-            children: [
-              Text('Scan Gateway'),
-              FloatingActionButton.small(
-                shape: CircleBorder(),
-                heroTag: null,
-                onPressed: null,
-                child: Icon(Icons.camera_alt),
-              ),
-            ],
-          ),
-        ],
+      floatingActionButton: CustomExpandableFab(
+        expandableFabKey: _key,
+        onManualPressed: () {},
+        onScanPressed: () {},
       ),
     );
   }
