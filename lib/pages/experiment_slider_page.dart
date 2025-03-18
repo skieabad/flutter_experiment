@@ -94,34 +94,30 @@ class _ExperimentSliderPageState extends State<ExperimentSliderPage> {
                       children: [
                         CustomSlidableAction(
                           onPressed: (context) {
-                            if (trips[index].isActive) {
+                            if (trip.isActive) {
                               // End trip
                               setState(() {
-                                trips[index].isActive = false;
+                                trip.isActive = false;
                               });
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text(
-                                    'Trip Ended: ${trips[index].name}',
-                                  ),
+                                  content: Text('Trip Ended: ${trip.name}'),
                                 ),
                               );
                             } else {
                               // Start trip
                               setState(() {
-                                trips[index].isActive = true;
+                                trip.isActive = true;
                               });
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text(
-                                    'Trip Started: ${trips[index].name}',
-                                  ),
+                                  content: Text('Trip Started: ${trip.name}'),
                                 ),
                               );
                             }
                           },
                           backgroundColor:
-                              trips[index].isActive ? Colors.red : Colors.green,
+                              trip.isActive ? Colors.red : Colors.green,
                           foregroundColor: Colors.white,
                           flex: 1,
                           borderRadius: BorderRadius.circular(12),
@@ -129,16 +125,12 @@ class _ExperimentSliderPageState extends State<ExperimentSliderPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
-                                trips[index].isActive
-                                    ? Icons.stop
-                                    : Icons.play_arrow,
+                                trip.isActive ? Icons.stop : Icons.play_arrow,
                                 color: Colors.white,
                                 size: 40,
                               ),
                               Text(
-                                trips[index].isActive
-                                    ? 'End Trip'
-                                    : 'Start Trip',
+                                trip.isActive ? 'End Trip' : 'Start Trip',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16,
