@@ -30,6 +30,8 @@ class _ExperimentSliderPageState extends State<ExperimentSliderPage> {
       body: ListView.builder(
         itemCount: trips.length,
         itemBuilder: (context, index) {
+          var trip = trips[index];
+
           return Padding(
             padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             child: Stack(
@@ -56,13 +58,13 @@ class _ExperimentSliderPageState extends State<ExperimentSliderPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              trips[index].name,
+                              trip.name,
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            if (trips[index].isActive)
+                            if (trip.isActive)
                               Container(
                                 padding: EdgeInsets.symmetric(
                                   horizontal: 8,
@@ -77,14 +79,14 @@ class _ExperimentSliderPageState extends State<ExperimentSliderPage> {
                           ],
                         ),
                         SizedBox(height: 8),
-                        Text('Vehicle: ${trips[index].vehicleName}'),
+                        Text('Vehicle: ${trip.vehicleName}'),
                       ],
                     ),
                   ),
                 ),
                 Positioned.fill(
                   child: Slidable(
-                    key: ValueKey(trips[index].name),
+                    key: ValueKey(trip.name),
                     direction: Axis.horizontal,
                     endActionPane: ActionPane(
                       motion: const ScrollMotion(),
@@ -92,34 +94,30 @@ class _ExperimentSliderPageState extends State<ExperimentSliderPage> {
                       children: [
                         CustomSlidableAction(
                           onPressed: (context) {
-                            if (trips[index].isActive) {
+                            if (trip.isActive) {
                               // End trip
                               setState(() {
-                                trips[index].isActive = false;
+                                trip.isActive = false;
                               });
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text(
-                                    'Trip Ended: ${trips[index].name}',
-                                  ),
+                                  content: Text('Trip Ended: ${trip.name}'),
                                 ),
                               );
                             } else {
                               // Start trip
                               setState(() {
-                                trips[index].isActive = true;
+                                trip.isActive = true;
                               });
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text(
-                                    'Trip Started: ${trips[index].name}',
-                                  ),
+                                  content: Text('Trip Started: ${trip.name}'),
                                 ),
                               );
                             }
                           },
                           backgroundColor:
-                              trips[index].isActive ? Colors.red : Colors.green,
+                              trip.isActive ? Colors.red : Colors.green,
                           foregroundColor: Colors.white,
                           flex: 1,
                           borderRadius: BorderRadius.circular(12),
@@ -127,16 +125,12 @@ class _ExperimentSliderPageState extends State<ExperimentSliderPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
-                                trips[index].isActive
-                                    ? Icons.stop
-                                    : Icons.play_arrow,
+                                trip.isActive ? Icons.stop : Icons.play_arrow,
                                 color: Colors.white,
                                 size: 40,
                               ),
                               Text(
-                                trips[index].isActive
-                                    ? 'End Trip'
-                                    : 'Start Trip',
+                                trip.isActive ? 'End Trip' : 'Start Trip',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16,
