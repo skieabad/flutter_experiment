@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
+import 'package:flutter_experiment/core/widgets/custom_expandable_fab.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class FabPage extends StatefulWidget {
+  const FabPage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<FabPage> createState() => _FabPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _FabPageState extends State<FabPage> {
   final _key = GlobalKey<ExpandableFabState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(title: Text('Fab Page'), centerTitle: true),
       body: Center(
         child: Column(
