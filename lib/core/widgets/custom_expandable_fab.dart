@@ -30,7 +30,7 @@ class CustomExpandableFab extends StatelessWidget {
       type: ExpandableFabType.up,
       childrenAnimation: ExpandableFabAnimation.none,
       distance: 70,
-      overlayStyle: ExpandableFabOverlayStyle(blur: 5),
+      overlayStyle: ExpandableFabOverlayStyle(blur: 2),
       children: [
         Row(
           spacing: 20,
