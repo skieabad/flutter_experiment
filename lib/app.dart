@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_experiment/pages/experiment_barcode_scanner.dart';
+import 'package:flutter_experiment/pages/experiment_copy_with_page.dart';
 
 class MyMaterialApp extends StatefulWidget {
   const MyMaterialApp({super.key});
@@ -26,7 +26,7 @@ class _MyMaterialAppState extends State<MyMaterialApp> {
           foregroundColor: Colors.white,
         ),
       ),
-      home: ExperimentBarcodeScanner(),
+      home: ExperimentCopyWithPage(),
     );
   }
 }
