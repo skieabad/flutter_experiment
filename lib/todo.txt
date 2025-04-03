@@ -1,0 +1,9 @@
+ToDo:
+1. Create an internet checker service by using provider
+2. Create a shared preferences service by using shared_preferences
+3. Experiment by using providers to multiple pages
+4. Dependency injection (get_it)
+5. Explore Stack Widget and Creating Splash Screen (can be fit to any devices)
+6. Create a http service (managing the HTTP methods)
+7. Explore devtools (new UI)
+8. Update the folder structure
