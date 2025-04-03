@@ -48,7 +48,7 @@ class ExperimentCopyWithPage extends StatelessWidget {
                                   log(
                                     'Marking trip as completed: ${trip.title}',
                                   );
-                                  provider.markAsCompleted(trip);
+                                  provider.markAsCompletedDuplicate(trip);
                                 },
                               ),
                     );

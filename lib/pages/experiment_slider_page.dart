@@ -26,7 +26,10 @@ class _ExperimentSliderPageState extends State<ExperimentSliderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Experiment Slider')),
+      appBar: AppBar(
+        title: Text('Experiment Slider'),
+        backgroundColor: Colors.indigo,
+      ),
       body: ListView.builder(
         itemCount: trips.length,
         itemBuilder: (context, index) {
