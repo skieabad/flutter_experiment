@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_experiment/pages/experiement_default_slider_page.dart';
 import 'package:flutter_experiment/pages/experiment_copy_with_page.dart';
+import 'package:flutter_experiment/pages/experiment_slider_page.dart';
 
 class MyMaterialApp extends StatefulWidget {
   const MyMaterialApp({super.key});
@@ -26,7 +28,8 @@ class _MyMaterialAppState extends State<MyMaterialApp> {
           foregroundColor: Colors.white,
         ),
       ),
-      home: ExperimentCopyWithPage(),
+      // home: ExperimentCopyWithPage(),
+      home: ExperimentDefaultSliderPage(),
     );
   }
 }
