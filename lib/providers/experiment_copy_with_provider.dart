@@ -43,7 +43,24 @@ class ExperimentCopyWithProvider extends ChangeNotifier {
 
   List<Trip> get trips => _trips;
 
+  // Approach 1
   void markAsCompleted(Trip selectedTrip) {
+    final index = _trips.indexWhere((trip) => trip.id == selectedTrip.id);
+
+    if (index == -1) {
+      return;
+    }
+
+    final selectedTripCopy = selectedTrip.copyWith(
+      status: TripStatus.completed,
+    );
+
+    _trips[index] = selectedTripCopy;
+    notifyListeners();
+  }
+
+  // Approach 2
+  void markAsCompletedDuplicate(Trip selectedTrip) {
     final index = _trips.indexWhere((trip) => trip.id == selectedTrip.id);
 
     if (index == -1) {
