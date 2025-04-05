@@ -137,7 +137,7 @@ class _ExperimentDefaultSliderPageState
                           size: 26,
                           color: Color(0xFF104C89),
                         ),
-                        onPressed: () {},
+                        onPressed: null,
                       ),
                     ),
                   ),
