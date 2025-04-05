@@ -64,9 +64,7 @@ class _ExperimentDefaultSliderPageState
                           Text('More'),
                         ],
                       ),
-                      onPressed: (context) {
-                        _showMoreOptions(context, trip);
-                      },
+                      onPressed: (context) => _showMoreOptions(context, trip),
                     ),
                     CustomSlidableAction(
                       backgroundColor: Colors.red,
