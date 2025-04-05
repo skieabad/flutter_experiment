@@ -27,12 +27,14 @@ class _ExperimentDefaultSliderPageState
     Trip(name: "Business Meeting", vehicleName: "Tesla Model 3"),
   ];
 
+  final Color primaryColor = Color(0xFF104C89);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Experiment Slider'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: primaryColor,
       ),
       backgroundColor: Colors.grey.shade300,
       body: ListView.builder(
@@ -110,7 +112,7 @@ class _ExperimentDefaultSliderPageState
                         trip.name,
                         style: TextStyle(
                           fontSize: 18,
-                          color: Color(0xFF104C89),
+                          color: primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -135,7 +137,7 @@ class _ExperimentDefaultSliderPageState
                         icon: Icon(
                           Icons.navigate_next,
                           size: 26,
-                          color: Color(0xFF104C89),
+                          color: primaryColor,
                         ),
                         onPressed: null,
                       ),
@@ -168,7 +170,7 @@ class _ExperimentDefaultSliderPageState
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF104C89),
+                    color: primaryColor,
                   ),
                 ),
               ),
