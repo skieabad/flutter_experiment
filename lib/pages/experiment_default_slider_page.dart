@@ -82,7 +82,6 @@ class _ExperimentDefaultSliderPageState
                       ),
                       onPressed: (context) {
                         log("Archived ${trip.name}");
-                        // Handle archive action
                       },
                     ),
                   ],
@@ -182,7 +181,6 @@ class _ExperimentDefaultSliderPageState
                 onTap: () {
                   Navigator.pop(context);
                   log("Edit ${trip.name}");
-                  // Handle edit logic
                 },
               ),
               ListTile(
@@ -191,7 +189,6 @@ class _ExperimentDefaultSliderPageState
                 onTap: () {
                   Navigator.pop(context);
                   log("Share ${trip.name}");
-                  // Handle share logic
                 },
               ),
               ListTile(
@@ -200,7 +197,6 @@ class _ExperimentDefaultSliderPageState
                 onTap: () {
                   Navigator.pop(context);
                   log("Duplicate ${trip.name}");
-                  // Handle duplicate logic
                 },
               ),
               ListTile(
@@ -209,7 +205,6 @@ class _ExperimentDefaultSliderPageState
                 onTap: () {
                   Navigator.pop(context);
                   log("Delete ${trip.name}");
-                  // Handle delete logic
                 },
               ),
               SizedBox(height: 8),
