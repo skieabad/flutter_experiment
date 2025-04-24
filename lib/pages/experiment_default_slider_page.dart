@@ -44,102 +44,117 @@ class _ExperimentDefaultSliderPageState
 
           return Padding(
             padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Slidable(
-                useTextDirection: true,
-                direction: Axis.horizontal,
-                endActionPane: ActionPane(
-                  motion: const ScrollMotion(),
-                  extentRatio: 0.5,
-                  children: [
-                    CustomSlidableAction(
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.white,
-                      padding: EdgeInsets.all(0),
-                      autoClose: true,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.more_horiz),
-                          SizedBox(height: 4),
-                          Text('More'),
-                        ],
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.blue, width: 2),
+                borderRadius: BorderRadius.circular(8),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(25, 0, 0, 0),
+                    blurRadius: 4,
+                    offset: Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(
+                  6,
+                ), // Slightly smaller to account for border
+                child: Slidable(
+                  useTextDirection: true,
+                  direction: Axis.horizontal,
+                  endActionPane: ActionPane(
+                    motion: const ScrollMotion(),
+                    extentRatio: 0.5,
+                    children: [
+                      CustomSlidableAction(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        padding: EdgeInsets.all(0),
+                        autoClose: true,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.more_horiz),
+                            SizedBox(height: 4),
+                            Text('More'),
+                          ],
+                        ),
+                        onPressed: (context) => _showMoreOptions(context, trip),
                       ),
-                      onPressed: (context) => _showMoreOptions(context, trip),
-                    ),
-                    CustomSlidableAction(
-                      backgroundColor: Colors.red,
-                      foregroundColor: Colors.white,
-                      padding: EdgeInsets.all(0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.archive),
-                          SizedBox(height: 4),
-                          Text('Archive'),
-                        ],
-                      ),
-                      onPressed: (context) {
-                        log("Archived ${trip.name}");
-                      },
-                    ),
-                  ],
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromARGB(25, 0, 0, 0),
-                        blurRadius: 4,
-                        offset: Offset(0, 2),
+                      CustomSlidableAction(
+                        backgroundColor: Colors.red,
+                        foregroundColor: Colors.white,
+                        padding: EdgeInsets.all(0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.archive),
+                            SizedBox(height: 4),
+                            Text('Archive'),
+                          ],
+                        ),
+                        onPressed: (context) {
+                          log("Archived ${trip.name}");
+                        },
                       ),
                     ],
                   ),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () {
-                      log("you tapped ${trip.name}");
-                    },
-                    child: ListTile(
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 4,
-                      ),
-                      title: Text(
-                        trip.name,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: primaryColor,
-                          fontWeight: FontWeight.bold,
+                  child: Container(
+                    color: Colors.white,
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () {
+                        log("you tapped ${trip.name}");
+                      },
+                      child: ListTile(
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 4,
                         ),
-                      ),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            trip.vehicleName,
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
+                        title: Text(
+                          trip.name,
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: primaryColor,
+                            fontWeight: FontWeight.bold,
                           ),
-                          Text(
-                            trip.vehicleName,
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
-                          ),
-                          Text(
-                            trip.vehicleName,
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
-                          ),
-                        ],
-                      ),
-                      trailing: IconButton(
-                        icon: Icon(
-                          Icons.navigate_next,
-                          size: 26,
-                          color: primaryColor,
                         ),
-                        onPressed: null,
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              trip.vehicleName,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Text(
+                              trip.vehicleName,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Text(
+                              trip.vehicleName,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                        trailing: IconButton(
+                          icon: Icon(
+                            Icons.navigate_next,
+                            size: 26,
+                            color: primaryColor,
+                          ),
+                          onPressed: null,
+                        ),
                       ),
                     ),
                   ),

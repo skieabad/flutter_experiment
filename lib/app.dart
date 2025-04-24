@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_experiment/routing/app_routing.dart';
+import 'package:flutter_experiment/pages/experiment_onboarding_page.dart';
 
 class MyMaterialApp extends StatefulWidget {
   const MyMaterialApp({super.key});
@@ -11,7 +11,7 @@ class MyMaterialApp extends StatefulWidget {
 class _MyMaterialAppState extends State<MyMaterialApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'Trip Swipe Actions',
       theme: ThemeData(
         primaryColor: Colors.white,
@@ -28,7 +28,8 @@ class _MyMaterialAppState extends State<MyMaterialApp> {
       ),
       // home: ExperimentCopyWithPage(),
       // home: ExperimentDefaultSliderPage(),
-      routerConfig: goRouter,
+      home: ExperimentOnBoardingPage(),
+      // routerConfig: goRouter,
     );
   }
 }
