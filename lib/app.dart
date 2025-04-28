@@ -29,6 +29,8 @@ class _MyMaterialAppState extends State<MyMaterialApp> {
       // home: ExperimentCopyWithPage(),
       // home: ExperimentDefaultSliderPage(),
       home: ExperimentOnBoardingPage(),
+      // home: ExperimentContainer(),
+      // home: ExperimentDetailsPage(),
       // routerConfig: goRouter,
     );
   }
