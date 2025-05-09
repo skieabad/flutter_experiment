@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_experiment/pages/experiment_onboarding_page.dart';
+import 'package:flutter_experiment/pages/experiment_internet_page.dart';
 
 class MyMaterialApp extends StatefulWidget {
   const MyMaterialApp({super.key});
@@ -28,9 +28,10 @@ class _MyMaterialAppState extends State<MyMaterialApp> {
       ),
       // home: ExperimentCopyWithPage(),
       // home: ExperimentDefaultSliderPage(),
-      home: ExperimentOnBoardingPage(),
+      // home: ExperimentOnBoardingPage(),
       // home: ExperimentContainer(),
       // home: ExperimentDetailsPage(),
+      home: ExperimentInternetPage(),
       // routerConfig: goRouter,
     );
   }
