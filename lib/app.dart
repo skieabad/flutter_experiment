@@ -12,7 +12,7 @@ class _MyMaterialAppState extends State<MyMaterialApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Trip Swipe Actions',
+      title: 'Experiments',
       theme: ThemeData(
         primaryColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
