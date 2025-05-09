@@ -162,38 +162,97 @@ class ExperimentOnBoardingPageState extends State<ExperimentOnBoardingPage> {
         ),
       ],
       onDone: () => _onIntroEnd(context),
-      onSkip: () => _onIntroEnd(context), // You can override onSkip callback
+      onSkip: () {},
       showSkipButton: true,
+      showBottomPart: true,
       skipOrBackFlex: 0,
       nextFlex: 0,
-      //rtl: true, // Display as right-to-left
       back: const Icon(Icons.arrow_back),
-      skip:
-          currentPageIndex >= 3
-              ? const Text(
-                'Skip',
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
-                ),
-              )
-              : const SizedBox.shrink(),
+      skip: const Text(
+        'Skip',
+        style: TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
+      ),
       next: const Icon(Icons.arrow_forward),
-      done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
+      showDoneButton: false,
       curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),
       controlsPadding:
           kIsWeb
               ? const EdgeInsets.all(12.0)
               : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
-      dotsDecorator: const DotsDecorator(
-        size: Size(10.0, 10.0),
-        color: Color(0xFFBDBDBD),
-        activeSize: Size(22.0, 10.0),
+      dotsDecorator: DotsDecorator(
+        size: currentPageIndex == 2 ? Size(0, 0) : Size(10.0, 10.0),
+        activeSize: currentPageIndex == 2 ? Size(0, 0) : Size(22.0, 10.0),
+        activeColor: Color(0xFFDC691F),
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
         ),
+        color: Color(0xFFBDBDBD),
       ),
+      globalFooter:
+          currentPageIndex == 2
+              ? Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24.0,
+                  vertical: 20.0,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        overlayColor: Color(0xFF104C89).withValues(alpha: 0.1),
+                      ),
+                      child: const Text(
+                        'Skip',
+                        style: TextStyle(
+                          color: Color(0xFF104C89),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        3,
+                        (index) => Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 6.0),
+                          width: currentPageIndex == index ? 24.0 : 10.0,
+                          height: 10.0,
+                          decoration: BoxDecoration(
+                            color:
+                                currentPageIndex == index
+                                    ? const Color(0xFFDC691F)
+                                    : const Color(0xFFBDBDBD),
+                            borderRadius: BorderRadius.circular(25.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        overlayColor: Color(0xFF104C89).withValues(alpha: 0.1),
+                      ),
+                      child: const Text(
+                        'Done',
+                        style: TextStyle(
+                          color: Color(0xFF104C89),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+              : SizedBox.shrink(),
       // Container of the dots
       // dotsContainerDecorator: const ShapeDecoration(
       //   color: Colors.black87,
