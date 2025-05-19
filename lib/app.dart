@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_experiment/pages/experiment_internet_page.dart';
+import 'package:flutter_experiment/pages/experiement_tooltip_page.dart';
 
 class MyMaterialApp extends StatefulWidget {
   const MyMaterialApp({super.key});
@@ -31,7 +31,7 @@ class _MyMaterialAppState extends State<MyMaterialApp> {
       // home: ExperimentOnBoardingPage(),
       // home: ExperimentContainer(),
       // home: ExperimentDetailsPage(),
-      home: ExperimentInternetPage(),
+      home: ExperimentTooltipPage(),
       // routerConfig: goRouter,
     );
   }
