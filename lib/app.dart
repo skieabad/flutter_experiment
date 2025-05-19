@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_experiment/pages/experiement_tooltip_page.dart';
+import 'package:flutter_experiment/pages/experiment_tooltip_page.dart';
 
 class MyMaterialApp extends StatefulWidget {
   const MyMaterialApp({super.key});
